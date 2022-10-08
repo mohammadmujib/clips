@@ -58,4 +58,11 @@ export class AuthService {
       displayName: userData.name,
     })
   }
+  public async logout($event?: Event) {
+    if ($event) {
+      $event.preventDefault()
+    }
+    await this.auth.signOut()
+    await this.router.navigateByUrl('/')
+  }
 }
